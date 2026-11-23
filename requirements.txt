@@ -1,0 +1,27 @@
+# Library versions of the Colab runtime (Tesla T4) that produced the reported
+# numbers. tests/test_environment.py checks the pins; every feature shard
+# records the installed versions.
+torch==2.11.0
+transformers==5.17.0
+numpy==2.1.3
+scikit-learn==1.6.1
+pandas==2.2.3
+librosa==0.11.0
+pyyaml
+matplotlib
+# Read from the Colab run of notebooks/01_environment_check.ipynb. On Colab,
+# torch, torchaudio and torchcodec are the builds for CUDA 13.0 (+cu130),
+# installed from https://download.pytorch.org/whl/cu130 by the install cell
+# of the notebooks.
+torchaudio==2.11.0
+torchcodec==0.17.0
+scipy==1.16.3
+soundfile==0.14.0
+tqdm
+pytest
+# Praat 6.1.38 through Parselmouth computes the probe targets.
+praat-parselmouth==0.4.7
+# The WebRTC voice activity detector of the supplementary condition `vad`
+# (supplementary analysis). Read from PyPI on 2026-11-23: wheels for CPython 3.13
+# on Linux x86_64 and on Windows, no runtime dependency.
+webrtcvad-wheels==2.0.14.post1

@@ -1,0 +1,38 @@
+# Frozen encoders. `revision` is the Hugging Face commit of the checkpoint.
+# Every other value is asserted against the loaded model (encoders.check_encoder).
+# wavlm-large is used for the padding check only (layer normalisation in the
+# convolutional encoder); no classifier is trained on it.
+#
+# attn_implementation: WavLM has the eager implementation only. HuBERT also
+# offers "sdpa" (its default); "eager" is fixed here so that both encoders use
+# the same computation path.
+wavlm-base:
+  hf_id: microsoft/wavlm-base
+  revision: efa81aae7ff777e464159e0f877d54eac5b84f81
+  model_class: WavLMModel
+  attn_implementation: eager
+  n_layers: 12
+  hidden_size: 768
+  feat_extract_norm: group
+  conv_kernel: [10, 3, 3, 3, 3, 2, 2]
+  conv_stride: [5, 2, 2, 2, 2, 2, 2]
+hubert-base:
+  hf_id: facebook/hubert-base-ls960
+  revision: dba3bb02fda4248b6e082697eee756de8fe8aa8a
+  model_class: HubertModel
+  attn_implementation: eager
+  n_layers: 12
+  hidden_size: 768
+  feat_extract_norm: group
+  conv_kernel: [10, 3, 3, 3, 3, 2, 2]
+  conv_stride: [5, 2, 2, 2, 2, 2, 2]
+wavlm-large:
+  hf_id: microsoft/wavlm-large
+  revision: c1423ed94bb01d80a3f5ce5bc39f6026a0f4828c
+  model_class: WavLMModel
+  attn_implementation: eager
+  n_layers: 24
+  hidden_size: 1024
+  feat_extract_norm: layer
+  conv_kernel: [10, 3, 3, 3, 3, 2, 2]
+  conv_stride: [5, 2, 2, 2, 2, 2, 2]

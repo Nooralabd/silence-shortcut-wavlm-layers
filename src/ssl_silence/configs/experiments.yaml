@@ -1,0 +1,51 @@
+# Conditions: trimming threshold in dB below the loudest frame (null = no trimming).
+conditions:
+  clean: null
+  trim40: 40
+  trim20: 20
+  trim15: 15
+
+poolings: [mean, stats]
+seeds: [42, 43, 44, 45, 46]
+
+# One model per (encoder, extraction, train condition, layer, pooling, seed).
+# The checkpoint is selected on the dev set of the training condition; the
+# model then scores eval and In-the-Wild in every listed test condition.
+# `layers: all` means every transformer layer of the encoder.
+experiments:
+  wavlm-base:
+    unpadded:
+      - {train: clean, layers: all, test: [clean, trim40]}
+      - {train: clean, layers: [3, 4, 5], test: [trim20, trim15]}
+      - {train: trim40, layers: all, test: [trim40, clean]}
+      - {train: trim20, layers: all, test: [trim20]}
+      - {train: trim20, layers: [3, 4, 5], test: [clean]}
+      - {train: trim15, layers: all, test: [trim15]}
+      - {train: trim15, layers: [3, 4, 5], test: [clean]}
+    # Padded comparison: the two reference configurations only.
+    padded:
+      - {train: clean, layers: [4], poolings: [stats], frames: all-frames, test: [clean]}
+      - {train: trim40, layers: [4], poolings: [mean], frames: real-frames, test: [trim40]}
+  hubert-base:
+    unpadded:
+      - {train: clean, layers: all, test: [clean, trim40, trim20, trim15]}
+      - {train: trim40, layers: all, test: [trim40, clean]}
+      - {train: trim20, layers: all, test: [trim20, clean]}
+      - {train: trim15, layers: all, test: [trim15, clean]}
+
+# Supplementary condition, not in the analysis plan (supplementary analysis): the
+# leading and trailing non-speech found by the WebRTC voice activity detector
+# is removed. frame_ms: length of a frame; aggressiveness: mode of the
+# detector (0 to 3); run_frames: the kept audio starts with the first run of
+# this many consecutive speech frames and ends with the last one.
+vad_conditions:
+  vad: {frame_ms: 10, aggressiveness: 3, run_frames: 3}
+
+# Runs of the supplementary condition. They are kept apart from `experiments`:
+# their folder is runs_vad/, and the clean models are trained again because
+# model weights are not stored.
+supplementary:
+  wavlm-base:
+    unpadded:
+      - {train: clean, layers: [3, 4, 5], test: [clean, vad]}
+      - {train: vad, layers: [3, 4, 5], test: [vad, clean]}

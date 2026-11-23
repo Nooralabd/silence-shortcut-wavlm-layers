@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ssl-silence"
+version = "0.1.0"
+description = "The silence shortcut in frozen self-supervised speech representations for audio deepfake detection"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+  { name = "Nur Elabid" },
+  { name = "Mahmud Esad Arar" },
+]
+# Unpinned on purpose: installing the package must not replace the torch build
+# of the runtime. The versions behind the reported numbers are in requirements.txt.
+dependencies = [
+  "numpy",
+  "torch",
+  "scikit-learn",
+  "scipy",
+  "pandas",
+  "pyyaml",
+]
+
+[project.optional-dependencies]
+audio = ["torchaudio", "soundfile", "librosa", "transformers", "praat-parselmouth"]
+plots = ["matplotlib"]
+dev = ["pytest", "soundfile", "librosa", "matplotlib", "praat-parselmouth", "transformers"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ssl_silence = ["configs/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

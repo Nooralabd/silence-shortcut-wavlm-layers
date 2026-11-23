@@ -1,0 +1,43 @@
+# Data, features, scores and archives are never committed.
+*.wav
+*.flac
+*.mp3
+*.ogg
+*.m4a
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+data/
+features/
+scores/
+*asv*.scores.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

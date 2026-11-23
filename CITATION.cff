@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+type: software
+title: "silence-shortcut-wavlm-layers: the silence shortcut in frozen self-supervised speech representations for audio deepfake detection"
+authors:
+  - family-names: Elabid
+    given-names: Nur
+    orcid: "https://orcid.org/0009-0003-2620-989X"
+  - family-names: Arar
+    given-names: Mahmud Esad
+    orcid: "https://orcid.org/0000-0002-7472-4189"
+repository-code: "https://github.com/Nooralabd/silence-shortcut-wavlm-layers"
+license: MIT
+preferred-citation:
+  type: article
+  title: "Do Layer Rankings Survive Silence Trimming? The Silence Shortcut in Frozen WavLM Representations for Audio Deepfake Detection"
+  authors:
+    - family-names: Elabid
+      given-names: Nur
+      orcid: "https://orcid.org/0009-0003-2620-989X"
+    - family-names: Arar
+      given-names: Mahmud Esad
+      orcid: "https://orcid.org/0000-0002-7472-4189"
+  year: 2026

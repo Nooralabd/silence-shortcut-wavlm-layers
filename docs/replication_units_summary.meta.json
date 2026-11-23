@@ -1,0 +1,90 @@
+{
+  "columns": [
+    "finding",
+    "quantity",
+    "condition",
+    "test_set",
+    "subset",
+    "n_units",
+    "n_in_rule",
+    "n_positive_in_rule",
+    "n_negative_in_rule"
+  ],
+  "git_commit": "637b4b89b1fa8eb551f178c90a520df58a65a1ac",
+  "inputs": {
+    "cross_layers": {
+      "trim15": [
+        3,
+        4,
+        5
+      ],
+      "trim20": [
+        3,
+        4,
+        5
+      ],
+      "trim40": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    "detail_layers": [
+      3,
+      4,
+      5
+    ],
+    "encoder": "wavlm-base",
+    "layers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "n_boot": 1000,
+    "runs_csv_sha256": {
+      "padded": "66b876ca885994db67bbb257d469659a993a37c93ce646739bfd8ec0241d66ae",
+      "unpadded": "81bbe6ec757a15324f3249c8205d5d0d0086cc11e0c2e3c543a9ea24ec4227c3"
+    },
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ]
+  },
+  "rows": 61,
+  "sha256": "c57ca3d644a39baed62b576d10f2402cece0cd2b20852489f0319610d8afb23b",
+  "table": "replication_units_summary.csv",
+  "versions": {
+    "librosa": "0.11.0",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "python": "3.13.16",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.16.3",
+    "soundfile": "0.14.0",
+    "torch": "2.11.0+cu130",
+    "torchaudio": "2.11.0+cu130",
+    "torchcodec": "0.17.0+cu130",
+    "transformers": "5.17.0"
+  }
+}
