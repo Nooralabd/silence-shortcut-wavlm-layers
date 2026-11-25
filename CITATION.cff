@@ -10,6 +10,7 @@ authors:
     given-names: Mahmud Esad
     orcid: "https://orcid.org/0000-0002-7472-4189"
 repository-code: "https://github.com/Nooralabd/silence-shortcut-wavlm-layers"
+doi: "10.5281/zenodo.24506385"
 license: MIT
 preferred-citation:
   type: article
@@ -22,3 +23,10 @@ preferred-citation:
       given-names: Mahmud Esad
       orcid: "https://orcid.org/0000-0002-7472-4189"
   year: 2026
+  journal: "arXiv preprint arXiv:2611.32457"
+  doi: "10.48550/arXiv.2611.32457"
+  url: "https://arxiv.org/abs/2611.32457"
+  identifiers:
+    - type: other
+      value: "arXiv:2611.32457"
+      description: "arXiv identifier"

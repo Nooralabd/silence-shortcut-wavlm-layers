@@ -5,6 +5,12 @@ representations for audio deepfake detection.
 
 Nur Elabid and Mahmud Esad Arar, Fatih Sultan Mehmet Vakif University.
 
+Paper: N. Elabid and M. E. Arar, "Do Layer Rankings Survive Silence Trimming?
+The Silence Shortcut in Frozen WavLM Representations for Audio Deepfake
+Detection", arXiv:2611.32457, 2026, <https://arxiv.org/abs/2611.32457>.
+The code and the result tables of this arXiv version are the first release
+of this repository, archived on Zenodo: <https://doi.org/10.5281/zenodo.24506386>.
+
 A frozen encoder (WavLM Base, HuBERT Base) produces the hidden states of every
 transformer layer once. They are pooled over time (mean, or mean and standard
 deviation) and cached, and a small classifier is trained per layer. Each model
@@ -167,3 +173,18 @@ checkpoints are selected on the development set only.
 | `notebooks/08_analysis.ipynb` | T4 (GPU not used) | metrics, intervals, effects, rank agreement and units of one encoder; WavLM Base: comparison with the original tables; HuBERT Base: the tables of the analysis plan, the paired differences to WavLM Base and the replication rule, after a check of the pre-registered files |
 | `notebooks/09_paper_tables_and_figures.ipynb` | CPU | tables and figures of the paper (planned; not written yet: the tables are built by `ssl_silence.paper.tables` and the figures by `ssl_silence.plots`) |
 | `notebooks/10_vad_condition.ipynb` | T4 | supplementary condition of WavLM Base, not in the analysis plan: leading and trailing non-speech removed by the WebRTC voice activity detector; extraction, 60 runs for layers 3 to 5, effects next to the condition trimmed at 40 dB |
+
+## Citation
+
+```bibtex
+@misc{elabid2026silence,
+  title         = {Do Layer Rankings Survive Silence Trimming? The Silence Shortcut in Frozen {WavLM} Representations for Audio Deepfake Detection},
+  author        = {Elabid, Nur and Arar, Mahmud Esad},
+  year          = {2026},
+  eprint        = {2611.32457},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.SD},
+  doi           = {10.48550/arXiv.2611.32457},
+  url           = {https://arxiv.org/abs/2611.32457}
+}
+```
